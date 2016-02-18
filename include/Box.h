@@ -35,4 +35,6 @@ public:
   bool content(Content c);
   void exterior(Exterior e);
   void open();
+  bool flag();
+  bool unknown();
 };

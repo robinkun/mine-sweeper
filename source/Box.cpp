@@ -30,6 +30,35 @@ void Box::exterior(Exterior e) {
 }
 
 
+/*----------------------------
+ * マスを開く
+ *----------------------------*/
 void Box::open() {
-  _exterior = E_OPENED;
+  if(exterior() == E_COVERED) {
+    exterior(E_OPENED);
+  }
+}
+
+
+/*----------------------------
+ * マスに旗を立てる
+ *----------------------------*/
+bool Box::flag() {
+  if(exterior() != E_OPENED) {
+    exterior(E_FLAG);
+    return true;
+  }
+  return false;
+}
+
+
+/*----------------------------
+ * マスに?をつける
+ *----------------------------*/
+bool Box::unknown() {
+  if(exterior() != E_OPENED) {
+    exterior(E_UNKNOWN);
+    return true;
+  }
+  return false;
 }

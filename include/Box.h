@@ -7,10 +7,12 @@ enum Content {
 
 
 enum Exterior {
+  E_MIN,
   E_COVERED,
   E_OPENED,
   E_FLAG,
-  E_UNKNOWN
+  E_UNKNOWN,
+  E_MAX
 };
 
 

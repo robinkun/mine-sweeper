@@ -17,11 +17,11 @@ Board::Board(int w, int h) {
 }
 
 
-int Board::width() {
+int Board::width() const {
   return _width;
 }
 
 
-int Board::height() {
+int Board::height() const {
   return _height;
 }

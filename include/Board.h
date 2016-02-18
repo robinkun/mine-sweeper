@@ -12,6 +12,6 @@ private:
 
 public:
   Board(int w, int h);
-  int width();
-  int height();
+  int width() const;
+  int height() const;
 };

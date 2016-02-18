@@ -25,10 +25,40 @@ bool Box::content(Content c) {
 }
 
 
-bool Box::exterior(Exterior e) {
-  if(e <= E_MIN || e >= E_MAX) {
-    return false;
-  }
+void Box::exterior(Exterior e) {
   _exterior = e;
-  return true;
+}
+
+
+/*----------------------------
+ * マスを開く
+ *----------------------------*/
+void Box::open() {
+  if(exterior() == E_COVERED) {
+    exterior(E_OPENED);
+  }
+}
+
+
+/*----------------------------
+ * マスに旗を立てる
+ *----------------------------*/
+bool Box::flag() {
+  if(exterior() != E_OPENED) {
+    exterior(E_FLAG);
+    return true;
+  }
+  return false;
+}
+
+
+/*----------------------------
+ * マスに?をつける
+ *----------------------------*/
+bool Box::unknown() {
+  if(exterior() != E_OPENED) {
+    exterior(E_UNKNOWN);
+    return true;
+  }
+  return false;
 }

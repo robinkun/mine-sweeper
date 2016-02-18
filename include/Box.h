@@ -13,12 +13,10 @@ enum Content {
  * 盤のマスの状態
  *----------------------------*/
 enum Exterior {
-  E_MIN,
   E_COVERED,
   E_OPENED,
   E_FLAG,
   E_UNKNOWN,
-  E_MAX
 };
 
 
@@ -35,5 +33,8 @@ public:
   Content content() const;
   Exterior exterior() const;
   bool content(Content c);
-  bool exterior(Exterior e);
+  void exterior(Exterior e);
+  void open();
+  bool flag();
+  bool unknown();
 };

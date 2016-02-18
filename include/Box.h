@@ -5,6 +5,7 @@ enum Content {
   C_MINE
 };
 
+
 enum Exterior {
   E_COVERED,
   E_OPENED,
@@ -12,15 +13,16 @@ enum Exterior {
   E_UNKNOWN
 };
 
+
 class Box {
 private:
-  int _content; // 中身
-  int _exterior; // 外面
+  Content _content; // 中身
+  Exterior _exterior; // 外面
 
 public:
   Box();
-  int content() const;
-  int exterior() const;
-  bool content(int c);
-  bool exterior(int e);
+  Content content() const;
+  Exterior exterior() const;
+  bool content(Content c);
+  bool exterior(Exterior e);
 };

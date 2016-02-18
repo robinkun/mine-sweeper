@@ -5,23 +5,23 @@ Box::Box() {
   _exterior = E_COVERED;
 }
 
-int Box::content() const {
+Content Box::content() const {
   return _content;
 }
 
 
-int Box::exterior() const {
+Exterior Box::exterior() const {
   return _exterior;
 }
 
 
-bool Box::content(int c) {
+bool Box::content(Content c) {
   _content = c;
   return true;
 }
 
 
-bool Box::exterior(int e) {
+bool Box::exterior(Exterior e) {
   _exterior = e;
   return true;
 }

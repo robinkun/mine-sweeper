@@ -26,3 +26,7 @@
 *.exe
 *.out
 *.app
+mine-sweeper
+
+# swap
+*.swp

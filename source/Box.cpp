@@ -32,3 +32,8 @@ bool Box::exterior(Exterior e) {
   _exterior = e;
   return true;
 }
+
+
+void Box::open() {
+  _exterior = E_OPENED;
+}

@@ -36,4 +36,5 @@ public:
   Exterior exterior() const;
   bool content(Content c);
   bool exterior(Exterior e);
+  void open();
 };

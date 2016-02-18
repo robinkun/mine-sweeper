@@ -25,12 +25,8 @@ bool Box::content(Content c) {
 }
 
 
-bool Box::exterior(Exterior e) {
-  if(e <= E_MIN || e >= E_MAX) {
-    return false;
-  }
+void Box::exterior(Exterior e) {
   _exterior = e;
-  return true;
 }
 
 

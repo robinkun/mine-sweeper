@@ -1,8 +1,8 @@
 #include "Box.h"
 
 Box::Box() {
-  _content = 0;
-  _exterior = 0;
+  _content = C_NONE;
+  _exterior = E_COVERED;
 }
 
 int Box::content() const {

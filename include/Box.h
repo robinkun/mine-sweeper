@@ -1,5 +1,17 @@
 #pragma once
 
+enum Content {
+  C_NONE,
+  C_MINE
+};
+
+enum Exterior {
+  E_COVERED,
+  E_OPENED,
+  E_FLAG,
+  E_UNKNOWN
+};
+
 class Box {
 private:
   int _content; // 中身

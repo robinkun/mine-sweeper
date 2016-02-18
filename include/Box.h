@@ -1,11 +1,17 @@
 #pragma once
 
+/*----------------------------
+ * 盤のマスの中身
+ *----------------------------*/
 enum Content {
   C_NONE = 0,
   C_MINE = 9
 };
 
 
+/*----------------------------
+ * 盤のマスの状態
+ *----------------------------*/
 enum Exterior {
   E_MIN,
   E_COVERED,
@@ -16,10 +22,13 @@ enum Exterior {
 };
 
 
+/*----------------------------
+ * 盤のマス
+ *----------------------------*/
 class Box {
 private:
   Content _content; // 中身
-  Exterior _exterior; // 外面
+  Exterior _exterior; // 状態
 
 public:
   Box();

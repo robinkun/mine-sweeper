@@ -1,5 +1,10 @@
 #include "Box.h"
 
+Box::Box() {
+  _content = 0;
+  _exterior = 0;
+}
+
 int Box::content() const {
   return _content;
 }

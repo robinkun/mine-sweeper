@@ -7,6 +7,9 @@ Board::Board(int w, int h) {
   }
   _width = w;
   _height = h;
+
+  // 幅w、高さhでマスを確保
+  board.~vector();
   board = vector<vector<Box>>(h);
   for(int i = 0; i < h; i++) {
     board[i] = vector<Box>(w);

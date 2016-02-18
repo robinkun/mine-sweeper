@@ -9,7 +9,7 @@ Board::Board(int w, int h) {
   _height = h;
 
   // 幅w、高さhでマスを確保
-  board.~vector();
+  freeBoard();
   board = vector<vector<Box>>(h);
   for(int i = 0; i < h; i++) {
     board[i] = vector<Box>(w);
@@ -17,6 +17,13 @@ Board::Board(int w, int h) {
       board[i][j] = Box();
     }
   }
+}
+
+void Board::freeBoard() {
+  for(unsigned int i = 0; i < board.size(); i++) {
+    board[i].~vector();
+  }
+  board.~vector();
 }
 
 
@@ -27,4 +34,8 @@ int Board::width() const {
 
 int Board::height() const {
   return _height;
+}
+
+
+void Board::setBox(Box box) {
 }

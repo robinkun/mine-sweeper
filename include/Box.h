@@ -1,8 +1,8 @@
 #pragma once
 
 enum Content {
-  C_NONE,
-  C_MINE
+  C_NONE = 0,
+  C_MINE = 9
 };
 
 

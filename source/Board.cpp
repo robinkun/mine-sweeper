@@ -19,6 +19,10 @@ Board::Board(int w, int h) {
   }
 }
 
+
+/*----------------------------
+ * マインスイーパー盤を開放
+ *----------------------------*/
 void Board::freeBoard() {
   for(unsigned int i = 0; i < board.size(); i++) {
     board[i].~vector();
@@ -37,5 +41,31 @@ int Board::height() const {
 }
 
 
-void Board::setBox(Box box) {
+int Board::mine_num() const {
+  return _mine_num;
+}
+
+
+/*----------------------------
+ * マインスイーパー盤に地雷を
+ * 配置
+ *----------------------------*/
+bool Board::putMine(int mine_num) {
+  if(mine_num < 0) return false;
+  _mine_num = mine_num;
+  if(_mine_num > _width*_height - 1) {
+    _mine_num = _width*_height - 1;
+  }
+
+  for(int i = 0, mine = 0; i < _height; i++) {
+    for(int j = 0; j < _width; j++, mine++) {
+      board[i][j].setMine();
+      if(mine >= mine_num) {
+        i = _height; // ループを抜ける
+        break;
+      }
+    }
+  }
+
+  return true;
 }

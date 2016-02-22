@@ -37,4 +37,6 @@ public:
   void open();
   bool flag();
   bool unknown();
+  void setMine();
+  void setNone();
 };

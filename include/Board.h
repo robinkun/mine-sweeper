@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "Box.h"
+#include "Cell.h"
 
 using namespace std;
 
@@ -9,7 +9,7 @@ using namespace std;
  *----------------------------*/
 class Board {
 private:
-  vector<vector<Box>> board; // 盤(2次元配列)
+  vector<vector<Cell>> board; // 盤(2次元配列)
   int _width;
   int _height;
   int _mine_num;

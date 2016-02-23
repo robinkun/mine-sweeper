@@ -23,13 +23,13 @@ enum Exterior {
 /*----------------------------
  * 盤のマス
  *----------------------------*/
-class Box {
+class Cell {
 private:
   Content _content; // 中身
   Exterior _exterior; // 状態
 
 public:
-  Box();
+  Cell();
   Content content() const;
   Exterior exterior() const;
   bool content(Content c);

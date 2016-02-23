@@ -10,11 +10,11 @@ Board::Board(int w, int h) {
 
   // 幅w、高さhでマスを確保
   freeBoard();
-  board = vector<vector<Box>>(h);
+  board = vector<vector<Cell>>(h);
   for(int i = 0; i < h; i++) {
-    board[i] = vector<Box>(w);
+    board[i] = vector<Cell>(w);
     for(int j = 0; j < w; j++) {
-      board[i][j] = Box();
+      board[i][j] = Cell();
     }
   }
 }

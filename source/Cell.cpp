@@ -1,22 +1,22 @@
-#include "Box.h"
+#include "Cell.h"
 
-Box::Box() {
+Cell::Cell() {
   _content = C_NONE;
   _exterior = E_COVERED;
 }
 
 
-Content Box::content() const {
+Content Cell::content() const {
   return _content;
 }
 
 
-Exterior Box::exterior() const {
+Exterior Cell::exterior() const {
   return _exterior;
 }
 
 
-bool Box::content(Content c) {
+bool Cell::content(Content c) {
   if(c < C_NONE || c > C_MINE) {
     return false;
   }
@@ -25,7 +25,7 @@ bool Box::content(Content c) {
 }
 
 
-void Box::exterior(Exterior e) {
+void Cell::exterior(Exterior e) {
   _exterior = e;
 }
 
@@ -33,7 +33,7 @@ void Box::exterior(Exterior e) {
 /*----------------------------
  * マスを開く
  *----------------------------*/
-void Box::open() {
+void Cell::open() {
   if(exterior() == E_COVERED) {
     exterior(E_OPENED);
   }
@@ -43,7 +43,7 @@ void Box::open() {
 /*----------------------------
  * マスに旗を立てる
  *----------------------------*/
-bool Box::flag() {
+bool Cell::flag() {
   if(exterior() != E_OPENED) {
     exterior(E_FLAG);
     return true;
@@ -55,7 +55,7 @@ bool Box::flag() {
 /*----------------------------
  * マスに?をつける
  *----------------------------*/
-bool Box::unknown() {
+bool Cell::unknown() {
   if(exterior() != E_OPENED) {
     exterior(E_UNKNOWN);
     return true;
@@ -67,7 +67,7 @@ bool Box::unknown() {
 /*----------------------------
  * マスに地雷を設置
  *----------------------------*/
-void Box::setMine() {
+void Cell::setMine() {
   _content = C_MINE;
 }
 
@@ -75,6 +75,6 @@ void Box::setMine() {
 /*----------------------------
  * マスから地雷を取り除く
  *----------------------------*/
-void Box::setNone() {
+void Cell::setNone() {
   _content = C_NONE;
 }

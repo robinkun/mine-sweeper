@@ -3,6 +3,7 @@
 Cell::Cell() {
   _content = C_NONE;
   _exterior = E_COVERED;
+  _up = _right = _down = _left = nullptr;
 }
 
 
@@ -27,6 +28,26 @@ bool Cell::content(Content c) {
 
 void Cell::exterior(Exterior e) {
   _exterior = e;
+}
+
+
+void Cell::up(Cell *u) {
+  _up = u;
+}
+
+
+void Cell::right(Cell *r) {
+  _right = r;
+}
+
+
+void Cell::down(Cell *d) {
+  _down = d;
+}
+
+
+void Cell::left(Cell *l) {
+  _left = l;
 }
 
 

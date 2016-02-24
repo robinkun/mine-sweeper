@@ -26,14 +26,22 @@ enum Exterior {
 class Cell {
 private:
   Content _content; // 中身
-  Exterior _exterior; // 状態
+  Exterior _exterior; // 外観
+  Cell *_up;
+  Cell *_right;
+  Cell *_down;
+  Cell *_left;
 
 public:
   Cell();
   Content content() const;
   Exterior exterior() const;
-  bool content(Content c);
-  void exterior(Exterior e);
+  bool content(Content);
+  void exterior(Exterior);
+  void up(Cell *);
+  void right(Cell *);
+  void down(Cell *);
+  void left(Cell *);
   void open();
   bool flag();
   bool unknown();

@@ -4,7 +4,10 @@ Cell::Cell() {
   _content = C_NONE;
   _exterior = E_COVERED;
   mine_num = 0;
-  _up = _right = _down = _left = nullptr;
+
+  for(int i = 0; i < DIRECTION_NUM; i++) {
+    surroundings[i] = nullptr;
+  }
 }
 
 
@@ -38,23 +41,43 @@ void Cell::exterior(Exterior e) {
 }
 
 
-void Cell::up(Cell *u) {
-  _up = u;
+void Cell::up(Cell *p) {
+  surroundings[UP] = p;
 }
 
 
-void Cell::right(Cell *r) {
-  _right = r;
+void Cell::upright(Cell *p) {
+  surroundings[UPRIGHT] = p;
 }
 
 
-void Cell::down(Cell *d) {
-  _down = d;
+void Cell::right(Cell *p) {
+  surroundings[RIGHT] = p;
 }
 
 
-void Cell::left(Cell *l) {
-  _left = l;
+void Cell::downright(Cell *p) {
+  surroundings[DOWNRIGHT] = p;
+}
+
+
+void Cell::down(Cell *p) {
+  surroundings[DOWN] = p;
+}
+
+
+void Cell::downleft(Cell *p) {
+  surroundings[DOWNLEFT] = p;
+}
+
+
+void Cell::left(Cell *p) {
+  surroundings[LEFT] = p;
+}
+
+
+void Cell::upleft(Cell *p) {
+  surroundings[UPLEFT] = p;
 }
 
 

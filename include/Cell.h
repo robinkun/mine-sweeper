@@ -44,10 +44,7 @@ private:
   Content _content; // 中身
   Exterior _exterior; // 外観
   int mine_num;
-  Cell *_up;
-  Cell *_right;
-  Cell *_down;
-  Cell *_left;
+  Cell *surroundings[DIRECTION_NUM];
 
 public:
   Cell();
@@ -57,9 +54,13 @@ public:
   bool content(Content);
   void exterior(Exterior);
   void up(Cell *);
+  void upright(Cell *);
   void right(Cell *);
+  void downright(Cell *);
   void down(Cell *);
+  void downleft(Cell *);
   void left(Cell *);
+  void upleft(Cell *);
   void open();
   bool flag();
   bool unknown();

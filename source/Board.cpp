@@ -22,12 +22,20 @@ Board::Board(int w, int h) {
     for(int j = 0; j < w; j++) {
       if(i > 0)
         board[i][j].up(&board[i-1][j]);
+      if(i > 0 && j < w-1)
+        board[i][j].upright(&board[i-1][j+1]);
       if(j < w-1)
         board[i][j].right(&board[i][j+1]);
+      if(i < h-1 && j < w-1)
+        board[i][j].downright(&board[i+1][j+1]);
       if(i < h-1)
         board[i][j].down(&board[i+1][j]);
+      if(i < h-1 && j > 0)
+        board[i][j].downleft(&board[i+1][j-1]);
       if(j > 0)
         board[i][j].left(&board[i][j-1]);
+      if(i > 0 && j > 0)
+        board[i][j].upleft(&board[i-1][j-1]);
     }
   }
 }

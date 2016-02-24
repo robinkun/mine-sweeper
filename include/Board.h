@@ -13,10 +13,12 @@ private:
   int _width;
   int _height;
   int _mine_num;
+  vector<vector<Cell>> board; // 盤(2次元配列)
 
 public:
-  vector<vector<Cell>> board; // 盤(2次元配列)
   Board(int w, int h);
+  Cell *cell(Position p);
+  Cell *cell(int x, int y);
   void freeBoard();
   bool putMine(int mine_num, Position press);
   int width() const;

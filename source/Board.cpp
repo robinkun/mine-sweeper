@@ -63,6 +63,18 @@ void Board::freeBoard() {
 }
 
 
+Cell *Board::cell(Position p) {
+  if(positionInRange(p)) return &board[p.y()][p.x()];
+  return nullptr;
+}
+
+
+Cell *Board::cell(int x, int y) {
+  if(positionInRange(Position(x, y))) return &board[y][x];
+  return nullptr;
+}
+
+
 int Board::width() const {
   return _width;
 }
@@ -117,6 +129,8 @@ bool Board::putMine(int mine_num, Position press) {
     // 地雷があるなら
     if(cells[i]) {
       board[pos.y()][pos.x()].setMine();
+    } else {
+      board[pos.y()][pos.x()].setNone();
     }
   }
 

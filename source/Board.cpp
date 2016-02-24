@@ -1,4 +1,6 @@
 #include "Board.h"
+#include <stdlib.h>
+#include <utility>
 
 Board::Board(int w, int h) {
   if(w < 0 || h < 0) {
@@ -80,20 +82,42 @@ int Board::mine_num() const {
  * マインスイーパー盤に地雷を
  * 配置
  *----------------------------*/
-bool Board::putMine(int mine_num) {
+bool Board::putMine(int mine_num, Position press) {
   if(mine_num < 0) return false;
   _mine_num = mine_num;
   if(_mine_num > _width*_height - 1) {
     _mine_num = _width*_height - 1;
   }
 
-  for(int i = 0, mine = 0; i < _height; i++) {
-    for(int j = 0; j < _width; j++, mine++) {
-      board[i][j].setMine();
-      if(mine >= mine_num) {
-        i = _height; // ループを抜ける
-        break;
-      }
+  vector<bool> cells(_width*_height, false);
+
+  int press_o = press.one(_width); // 開けた場所
+  for(int i = 0; i < _mine_num; i++) {
+    int pos = i;
+    if(pos >= press_o) {
+      pos++;
+    }
+    cells[i] = true;
+  }
+
+  for(int i = 0; i < _width*_height; i++) {
+    if(i == press_o) {
+      continue;
+    }
+    int pos = rand()%(_width*_height-1);
+    if(pos >= press_o) {
+      pos++;
+    }
+    swap(cells[i], cells[pos]);
+  }
+
+  for(int i = 0; i < _width*_height; i++) {
+    Position pos;
+    pos.two(i, _width);
+    printf("%d, %d\n", pos.x(),pos.y());
+    // 地雷があるなら
+    if(cells[i]) {
+      board[pos.y()][pos.x()].setMine();
     }
   }
 
@@ -101,6 +125,10 @@ bool Board::putMine(int mine_num) {
 }
 
 
+/*----------------------------
+ * pの座標がボードの範囲内に
+ * あるか判定
+ *----------------------------*/
 bool Board::positionInRange(Position p) const {
   if(p.x() >= 0 && p.x() < _width && p.y() >= 0 && p.y() < _height) {
     return true;

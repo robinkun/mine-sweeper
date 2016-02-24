@@ -136,7 +136,10 @@ bool Cell::unknown() {
  * マスに地雷を設置
  *----------------------------*/
 void Cell::setMine() {
-  _content = C_MINE;
+  if(_content != C_MINE) {
+    _content = C_MINE;
+    updateSurroundMineNum();
+  }
 }
 
 
@@ -144,7 +147,10 @@ void Cell::setMine() {
  * マスから地雷を取り除く
  *----------------------------*/
 void Cell::setNone() {
-  _content = C_NONE;
+  if(_content != C_NONE) {
+    _content = C_NONE;
+    updateSurroundMineNum();
+  }
 }
 
 

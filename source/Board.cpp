@@ -133,8 +133,39 @@ bool Board::putMine(int mine_num, Position press) {
       board[pos.y()][pos.x()].setNone();
     }
   }
+  reflexiveOpen(press);
 
   return true;
+}
+
+
+/*----------------------------
+ * pの座標から再帰的にセルを開く
+ *----------------------------*/
+void Board::reflexiveOpen(Position p) {
+  if(!positionInRange(p)) return;
+  if(board[p.y()][p.x()].isOpened() || board[p.y()][p.x()].isMine()) return;
+
+  board[p.y()][p.x()].open();
+  if(positionInRange(p.x()+1, p.y())) reflexiveOpen(p.x()+1, p.y());
+  if(positionInRange(p.x(), p.y()-1)) reflexiveOpen(p.x(), p.y()-1);
+  if(positionInRange(p.x()-1, p.y())) reflexiveOpen(p.x()-1, p.y());
+  if(positionInRange(p.x(), p.y()+1)) reflexiveOpen(p.x(), p.y()+1);
+}
+
+
+/*----------------------------
+ * x,yの座標から再帰的に
+ * セルを開く
+ *----------------------------*/
+void Board::reflexiveOpen(int x, int y) {
+  if(!positionInRange(x, y)) return;
+  if(board[y][x].isOpened() || board[y][x].isMine()) return;
+  board[y][x].open();
+  if(positionInRange(x+1, y)) reflexiveOpen(x+1, y);
+  if(positionInRange(x, y-1)) reflexiveOpen(x, y-1);
+  if(positionInRange(x-1, y)) reflexiveOpen(x-1, y);
+  if(positionInRange(x, y+1)) reflexiveOpen(x, y+1);
 }
 
 
@@ -144,6 +175,18 @@ bool Board::putMine(int mine_num, Position press) {
  *----------------------------*/
 bool Board::positionInRange(Position p) const {
   if(p.x() >= 0 && p.x() < _width && p.y() >= 0 && p.y() < _height) {
+    return true;
+  }
+  return false;
+}
+
+
+/*----------------------------
+ * x,yの座標がボードの範囲内に
+ * あるか判定
+ *----------------------------*/
+bool Board::positionInRange(int x, int y) const {
+  if(x >= 0 && x < _width && y >= 0 && y < _height) {
     return true;
   }
   return false;

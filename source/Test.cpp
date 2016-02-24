@@ -16,4 +16,13 @@ void TestRender::render() {
     }
     printf("\n");
   }
+  puts("");
+
+  for(int i = 0; i < b->height(); i++) {
+    for(int j = 0; j < b->width(); j++) {
+      printf("%2d", b->cell(j, i)->exterior());
+    }
+    printf("\n");
+  }
+  puts("");
 }

@@ -1,4 +1,5 @@
 #include "Cell.h"
+#include <stdio.h>
 
 Cell::Cell() {
   _content = C_NONE;
@@ -178,4 +179,29 @@ void Cell::updateSurroundMineNum() {
       surroundings[i]->updateMineNum();
     }
   }
+}
+
+
+/*----------------------------
+ * 再帰的にセルを開く
+ *----------------------------*/
+void Cell::reflexiveOpen(Cell *p) {
+  if(!p) return;
+  if(p->_exterior == E_OPENED || p->_content == C_MINE) return;
+  p->open();
+  if(p->surroundings[UP]) reflexiveOpen(p->surroundings[UP]);
+  if(p->surroundings[RIGHT]) reflexiveOpen(p->surroundings[RIGHT]);
+  if(p->surroundings[LEFT]) reflexiveOpen(p->surroundings[LEFT]);
+  if(p->surroundings[DOWN]) reflexiveOpen(p->surroundings[DOWN]);
+}
+
+bool Cell::isOpened() {
+  if(_exterior == E_OPENED) return true;
+  return false;
+}
+
+
+bool Cell::isMine() {
+  if(_content == C_MINE) return true;
+  return false;
 }

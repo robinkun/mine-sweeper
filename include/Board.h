@@ -24,5 +24,8 @@ public:
   int width() const;
   int height() const;
   int mine_num() const;
+  void reflexiveOpen(Position p);
+  void reflexiveOpen(int x, int y);
   bool positionInRange(Position p) const;
+  bool positionInRange(int x, int y) const;
 };

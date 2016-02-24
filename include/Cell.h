@@ -66,4 +66,6 @@ public:
   bool unknown();
   void setMine();
   void setNone();
+  void updateMineNum();
+  void updateSurroundMineNum();
 };

@@ -34,6 +34,7 @@ private:
 
 public:
   Cell();
+  Cell(const Cell &obj);
   Content content() const;
   Exterior exterior() const;
   bool content(Content);

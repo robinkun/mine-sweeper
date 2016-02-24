@@ -7,6 +7,12 @@ Cell::Cell() {
 }
 
 
+Cell::Cell(const Cell &obj) {
+  _content = obj._content;
+  _exterior = obj._exterior;
+}
+
+
 Content Cell::content() const {
   return _content;
 }

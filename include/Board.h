@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "Cell.h"
+#include "Position.h"
 
 using namespace std;
 
@@ -21,4 +22,5 @@ public:
   int width() const;
   int height() const;
   int mine_num() const;
+  bool positionInRange(Position p) const;
 };

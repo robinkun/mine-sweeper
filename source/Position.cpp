@@ -32,6 +32,15 @@ int Position::y() const {
 
 
 /*----------------------------
+ * 2次元座標に変換して代入
+ *----------------------------*/
+void Position::two(int o, int width) {
+  _x = o%width;
+  _y = o/width;
+}
+
+
+/*----------------------------
  * 1次元座標に変換
  *----------------------------*/
 int Position::one(int width) const {

@@ -12,6 +12,9 @@ Cell::Cell() {
 
 
 Cell::Cell(const Cell &obj) {
+  if(_content != obj._content) {
+    updateSurroundingMineNum();
+  }
   _content = obj._content;
   _exterior = obj._exterior;
 }

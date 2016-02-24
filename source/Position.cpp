@@ -29,3 +29,11 @@ int Position::x() const {
 int Position::y() const {
   return _y;
 }
+
+
+/*----------------------------
+ * 1次元座標に変換
+ *----------------------------*/
+int Position::one(int width) const {
+  return _x + _y*width;
+}

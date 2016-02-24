@@ -15,4 +15,5 @@ public:
   void y(int y);
   int x() const;
   int y() const;
+  int one(int width) const;
 };

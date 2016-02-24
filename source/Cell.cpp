@@ -12,11 +12,12 @@ Cell::Cell() {
 
 
 Cell::Cell(const Cell &obj) {
-  if(_content != obj._content) {
-    updateSurroundMineNum();
-  }
+  Content old_content = _content;
   _content = obj._content;
   _exterior = obj._exterior;
+  if(old_content != obj._content) {
+    updateSurroundMineNum();
+  }
 }
 
 

@@ -182,12 +182,18 @@ void Cell::updateSurroundMineNum() {
 }
 
 
+/*----------------------------
+ * セルが開いているか
+ *----------------------------*/
 bool Cell::isOpened() {
   if(_exterior == E_OPENED) return true;
   return false;
 }
 
 
+/*----------------------------
+ * セルに地雷があるか
+ *----------------------------*/
 bool Cell::isMine() {
   if(_content == C_MINE) return true;
   return false;

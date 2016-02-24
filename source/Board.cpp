@@ -103,6 +103,7 @@ bool Board::putMine(int mine_num, Position press) {
 
   vector<bool> cells(_width*_height, false);
 
+  // 地雷を並べて設置
   int press_o = press.one(_width); // 開けた場所
   for(int i = 0; i < _mine_num; i++) {
     int pos = i;
@@ -112,6 +113,7 @@ bool Board::putMine(int mine_num, Position press) {
     cells[i] = true;
   }
 
+  // 地雷をかき乱す
   for(int i = 0; i < _width*_height; i++) {
     if(i == press_o) {
       continue;
@@ -123,6 +125,7 @@ bool Board::putMine(int mine_num, Position press) {
     swap(cells[i], cells[pos]);
   }
 
+  // 地雷をboardに移す
   for(int i = 0; i < _width*_height; i++) {
     Position pos;
     pos.two(i, _width);

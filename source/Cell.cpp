@@ -3,7 +3,7 @@
 Cell::Cell() {
   _content = C_NONE;
   _exterior = E_COVERED;
-  mine_num = 0;
+  _mine_num = 0;
 
   for(int i = 0; i < DIRECTION_NUM; i++) {
     surroundings[i] = nullptr;
@@ -27,6 +27,11 @@ Content Cell::content() const {
 
 Exterior Cell::exterior() const {
   return _exterior;
+}
+
+
+int Cell::mine_num() {
+  return _mine_num;
 }
 
 
@@ -146,11 +151,11 @@ void Cell::setNone() {
  * 地雷の数を更新
  *----------------------------*/
 void Cell::updateMineNum() {
-  mine_num = 0;
+  _mine_num = 0;
   for(int i = 0; i < DIRECTION_NUM; i++) {
     if(surroundings[i]) {
       if(surroundings[i]->_content == C_MINE) {
-        mine_num++;
+        _mine_num++;
       }
     }
   }
@@ -158,7 +163,7 @@ void Cell::updateMineNum() {
 
 
 /*----------------------------
- * 周りのセルの中のmine_numを更新
+ * 周りのセルの中の_mine_numを更新
  *----------------------------*/
 void Cell::updateSurroundMineNum() {
   for(int i = 0; i < DIRECTION_NUM; i++) {

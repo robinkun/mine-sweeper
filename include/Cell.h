@@ -43,7 +43,7 @@ class Cell {
 private:
   Content _content; // 中身
   Exterior _exterior; // 外観
-  int mine_num;
+  int _mine_num;
   Cell *surroundings[DIRECTION_NUM];
 
 public:
@@ -51,6 +51,7 @@ public:
   Cell(const Cell &obj);
   Content content() const;
   Exterior exterior() const;
+  int mine_num();
   bool content(Content);
   void exterior(Exterior);
   void up(Cell *);

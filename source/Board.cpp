@@ -114,7 +114,6 @@ bool Board::putMine(int mine_num, Position press) {
   for(int i = 0; i < _width*_height; i++) {
     Position pos;
     pos.two(i, _width);
-    printf("%d, %d\n", pos.x(),pos.y());
     // 地雷があるなら
     if(cells[i]) {
       board[pos.y()][pos.x()].setMine();

@@ -46,8 +46,6 @@ private:
   int _mine_num;
   Cell *surroundings[DIRECTION_NUM];
 
-  void reflexiveOpen(Cell *);
-
 public:
   Cell();
   Cell(const Cell &obj);

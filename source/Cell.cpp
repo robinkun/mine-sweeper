@@ -3,6 +3,7 @@
 Cell::Cell() {
   _content = C_NONE;
   _exterior = E_COVERED;
+  mine_num = 0;
   _up = _right = _down = _left = nullptr;
 }
 

@@ -27,6 +27,7 @@ class Cell {
 private:
   Content _content; // 中身
   Exterior _exterior; // 外観
+  int mine_num;
   Cell *_up;
   Cell *_right;
   Cell *_down;

@@ -21,6 +21,22 @@ enum Exterior {
 
 
 /*----------------------------
+ * 方向
+ *----------------------------*/
+enum Direction {
+  UP,
+  UPRIGHT,
+  RIGHT,
+  DOWNRIGHT,
+  DOWN,
+  DOWNLEFT,
+  LEFT,
+  UPLEFT,
+  DIRECTION_NUM
+};
+
+
+/*----------------------------
  * 盤のマス
  *----------------------------*/
 class Cell {
